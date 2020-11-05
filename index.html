@@ -2,10 +2,145 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Tennis</title>
+	<link rel="icon" type="image/png" href="favicon.ico" sizes="16x16">
+	<link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-	<h1>Hola Mundo</h1>
+	<header>
+		<div class="collapse-btn">
+			<img src="images/ball.png" alt="Toggle Button">
+			<span>Menu</span>
+		</div>
+		<div class="header-lenguage">
+			<a href="#" class="active">Es</a>
+			<a href="#">En</a>
+		</div>
+		<nav class="collapse-content">
+			<ul>
+				<li class="active"><a href="/" title="Inicio">Inicio</a></li>
+				<li><a href="/" title="Conoce más acerca de nosotros">Acerca de nosotros</a></li>
+				<li><a href="/" title="Nuestra Historia">Historia</a></li>
+				<li><a href="/" title="Mandanos un Mensje">Contacto</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<section class="welcome-row">
+			<h1>Las mejores raquetas para jugar <strong>Tennis</strong></h1>
+			<a href="/" title="Conoce más acerca de nosotros">Acerca de Nosotros</a>
+		</section>
+		<section class="history-row">
+			<div class="history-row__wrapper">
+				<h2><span>Tennis</span>Raquetas.Accesorios.Pelotas.</h2>
+				<div class="history-row__content">
+					<p>Conoce nuestras raquetas y aprende a jugar Tennis cómo un profesional.</p>
+					<a href="/" title="Nuestra Historia">Historia</a>
+				</div>
+			</div>
+		</section>
+		<section class="slide-row" id="MultiSlider">
+			<div class="slide-row__text">
+				<div>
+					<h2>Nuestras <strong>Raquetas</strong></h2>
+					<p>Conoce nuestras raquetas y aprende a jugar Tennis cómo un profesional.</p>
+					<ul class="MS-indicators"></ul>
+					<div class="MS-controls">
+						<button class="MS-left">
+							<span class="sr-only">Anterior</span>
+						</buttona>
+						<button class="MS-right">
+							<span class="sr-only">Siguiente</span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="slide-row__images">
+				<div class="MS-content">
+					<div class="item" data-index="0">
+						<a href="" title="Wilson Energy XL de venta aquí!"><img src="images/slider-item.jpg" alt="Compra tu Wilson Energy XL aquí"></a>
+					</div>
+					<div class="item" data-index="1">
+						<a href="" title="Babolat Boost Drive de venta aquí!"><img src="images/slider-item.jpg" alt="Compra tu Babolat Boost Drive aquí"></a>
+					</div>
+					<div class="item" data-index="2">
+						<a href="" title="Head Radical de venta aquí!"><img src="images/slider-item.jpg" alt="Compra tu Head Radical aquí"></a>
+					</div>
+					<div class="item" data-index="3">
+						<a href="" title="Head Prestige Pro de venta aquí!"><img src="images/slider-item.jpg" alt="Compra tu Head Prestige Pro aquí"></a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="hero-image-row">
+			<img src="images/hero-image.jpg" alt="Las mejores raquetas de Tennis para ti">
+		</section>
+	</main>
+	<footer>
+		<div class="footer-wrapper">
+			<ul class="quick-links">
+				<li class="active"><a href="/" title="Inicio">Inicio</a></li>
+				<li><a href="/" title="Conoce más acerca de nosotros">Acerca de nosotros</a></li>
+				<li><a href="/" title="Nuestra Historia">Historia</a></li>
+				<li><a href="/" title="Mandanos un Mensje">Contacto</a></li>
+			</ul>
+			<ul class="social-links">
+				<li><a href="/" title="Siguenos en Linkedin"><img src="images/linkedin.png" alt="Siguenos en Linkedin"></a></li>
+				<li><a href="/" title="Siguenos en Vimeo"><img src="images/vimeo.png" alt="Siguenos en Vimeo"></a></li>
+				<li><a href="/" title="Siguenos en Instagram"><img src="images/instagram.png" alt="Siguenos en Instagram"></a></li>
+				<li><a href="/" title="Siguenos en Twitter"><img src="images/twitter.png" alt="Siguenos en Twitter"></a></li>
+				<li><a href="/" title="Siguenos en Facebook"><img src="images/facebook.png" alt="Siguenos en Facebook"></a></li>
+			</ul>
+			<div class="footer-icon">
+				<img src="images/ball.png" alt="Toggle Button">
+			</div>
+		</div>
+	</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="js/multislider.min.js"></script>
+
+
+<script>
+	//function of collpase on mobile
+	$('header .collapse-btn').click(function(){
+		$(this).toggleClass('open');
+		$('header .collapse-content').slideToggle();
+	});
+
+	$('#MultiSlider .MS-content .item').each(function(index,item){
+		//add number to the slideres items
+		$(this).find('>a').append('<span>'+(index+1 )+'</span>');
+
+		//add the slider indicators
+		if(index == 0){
+			$('#MultiSlider .MS-indicators').append('<li class="active"></li>');
+		}else{
+			$('#MultiSlider .MS-indicators').append('<li></li>');
+		}
+	});
+	
+	//intialization of slider
+	$('#MultiSlider').multislider({
+		interval:0,
+	});
+
+	//slider indicators functionality
+	$('#MultiSlider').on('ms.before.animate', function(){
+		$('#MultiSlider .MS-indicators li').removeClass('active');
+	});
+	$('#MultiSlider').on('ms.after.animate', function(){
+		var indicator = $('#MultiSlider .MS-content .item').first().attr('data-index');
+		$($('#MultiSlider .MS-indicators li')[indicator]).addClass('active');
+	});
+	//End slider indicators functionality
+
+	//animation on scroll
+	$(window).scroll(function(){
+		var scrollRatio = window.pageYOffset / (document.body.offsetHeight - window.innerHeight);
+	});
+</script>
+
 </body>
 </html>

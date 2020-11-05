@@ -1,0 +1,83 @@
+// main: master.less
+
+@primary:#cbe346;
+@black:#000;
+@white:#fff;
+@grey:#f3f4f8;
+@dark-blue:#1e2335;
+
+@footer-blue:#2b3049;
+
+*{
+	box-sizing: border-box;
+	font-family: 'HelveticaNeue','Helvetica Neue','Helvetica','Arial';
+}
+
+a{text-decoration: none;}
+
+body{
+	margin: 0;
+}
+
+img{
+	max-width: 100%;
+}
+
+.sr-only{
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
+}
+
+.main-button(){
+	display: block;
+	width: 230px;
+	height: 53px;
+	line-height: 51px;
+	border: 1px solid @white;
+	border-radius: 26px;
+	color: @white;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 32px;
+	transition: 0.3s all;
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 1.01px;
+	font-weight: 700;
+	@media(min-width:@sm-min){ 
+		width: 270px;
+	}
+	&::after{
+		content: "";
+		background: url('../images/right-arrow.png')no-repeat center/cover;
+		width: 23px;
+		height: 6px;
+		display: block;
+		margin-left: 5px;
+	}
+	&:hover{
+		background: darken(@primary,12);
+		text-shadow: 1px 1px 3px @black;
+	}
+}
+
+@xs-max:579px;
+
+@sm-min:580px;
+@sm-max:767px;
+
+@md-min:768px;
+@md-max:991px;
+
+@lg-min:992px;
+@lg-max:1439px;
+
+@xl-min:1439px;
