@@ -3,6 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Conoce nuestras raquetas y aprende a jugar Tennis cómo un profesional.">
+	<meta name="keywords" content="Tennis, Raquetas, Accesorios, Pelotas">
+	<meta name="author" content="Jorge Mauricio Rodriguez Patiño">
 	<title>Tennis</title>
 	<link rel="icon" type="image/png" href="favicon.ico" sizes="16x16">
 	<link rel="stylesheet" href="styles/style.css">
@@ -19,24 +22,24 @@
 		</div>
 		<nav class="collapse-content">
 			<ul>
-				<li class="active"><a href="/" title="Inicio">Inicio</a></li>
-				<li><a href="/" title="Conoce más acerca de nosotros">Acerca de nosotros</a></li>
-				<li><a href="/" title="Nuestra Historia">Historia</a></li>
-				<li><a href="/" title="Mandanos un Mensje">Contacto</a></li>
+				<li class="active"><a href="#" title="Inicio">Inicio</a></li>
+				<li><a href="#" title="Conoce más acerca de nosotros">Acerca de nosotros</a></li>
+				<li><a href="#" title="Nuestra Historia">Historia</a></li>
+				<li><a href="#" title="Mandanos un Mensje">Contacto</a></li>
 			</ul>
 		</nav>
 	</header>
 	<main>
 		<section class="welcome-row">
 			<h1>Las mejores raquetas para jugar <strong>Tennis</strong></h1>
-			<a href="/" title="Conoce más acerca de nosotros">Acerca de Nosotros</a>
+			<a href="#" title="Conoce más acerca de nosotros">Acerca de Nosotros</a>
 		</section>
 		<section class="history-row">
 			<div class="history-row__wrapper">
 				<h2><span>Tennis</span>Raquetas.Accesorios.Pelotas.</h2>
 				<div class="history-row__content">
 					<p>Conoce nuestras raquetas y aprende a jugar Tennis cómo un profesional.</p>
-					<a href="/" title="Nuestra Historia">Historia</a>
+					<a href="#" title="Nuestra Historia">Historia</a>
 				</div>
 			</div>
 		</section>
@@ -80,17 +83,17 @@
 	<footer>
 		<div class="footer-wrapper">
 			<ul class="quick-links">
-				<li class="active"><a href="/" title="Inicio">Inicio</a></li>
-				<li><a href="/" title="Conoce más acerca de nosotros">Acerca de nosotros</a></li>
-				<li><a href="/" title="Nuestra Historia">Historia</a></li>
-				<li><a href="/" title="Mandanos un Mensje">Contacto</a></li>
+				<li class="active"><a href="#" title="Inicio">Inicio</a></li>
+				<li><a href="#" title="Conoce más acerca de nosotros">Acerca de nosotros</a></li>
+				<li><a href="#" title="Nuestra Historia">Historia</a></li>
+				<li><a href="#" title="Mandanos un Mensje">Contacto</a></li>
 			</ul>
 			<ul class="social-links">
-				<li><a href="/" title="Siguenos en Linkedin"><img src="images/linkedin.png" alt="Siguenos en Linkedin"></a></li>
-				<li><a href="/" title="Siguenos en Vimeo"><img src="images/vimeo.png" alt="Siguenos en Vimeo"></a></li>
-				<li><a href="/" title="Siguenos en Instagram"><img src="images/instagram.png" alt="Siguenos en Instagram"></a></li>
-				<li><a href="/" title="Siguenos en Twitter"><img src="images/twitter.png" alt="Siguenos en Twitter"></a></li>
-				<li><a href="/" title="Siguenos en Facebook"><img src="images/facebook.png" alt="Siguenos en Facebook"></a></li>
+				<li><a href="#" title="Siguenos en Linkedin"><img src="images/linkedin.png" alt="Siguenos en Linkedin"></a></li>
+				<li><a href="#" title="Siguenos en Vimeo"><img src="images/vimeo.png" alt="Siguenos en Vimeo"></a></li>
+				<li><a href="#" title="Siguenos en Instagram"><img src="images/instagram.png" alt="Siguenos en Instagram"></a></li>
+				<li><a href="#" title="Siguenos en Twitter"><img src="images/twitter.png" alt="Siguenos en Twitter"></a></li>
+				<li><a href="#" title="Siguenos en Facebook"><img src="images/facebook.png" alt="Siguenos en Facebook"></a></li>
 			</ul>
 			<div class="footer-icon">
 				<img src="images/ball.png" alt="Toggle Button">
@@ -107,6 +110,24 @@
 	$('header .collapse-btn').click(function(){
 		$(this).toggleClass('open');
 		$('header .collapse-content').slideToggle();
+	});
+
+	//navbar functionality | for demonstration purposes only
+	$('header .collapse-content ul li a').click(function(){
+		$('header .collapse-content ul li').removeClass('active');
+		$(this).parent().addClass('active');
+	});
+
+	//language functionality | for demonstration purposes only
+	$('header .header-lenguage a').click(function(){
+		$('header .header-lenguage a').removeClass('active');
+		$(this).addClass('active');
+	});
+
+	//quick links functionality | for demonstration purposes only
+	$('footer .quick-links li a').click(function(){
+		$('footer .quick-links li').removeClass('active');
+		$(this).parent().addClass('active');
 	});
 
 	$('#MultiSlider .MS-content .item').each(function(index,item){
@@ -136,10 +157,7 @@
 	});
 	//End slider indicators functionality
 
-	//animation on scroll
-	$(window).scroll(function(){
-		var scrollRatio = window.pageYOffset / (document.body.offsetHeight - window.innerHeight);
-	});
+
 </script>
 
 </body>
